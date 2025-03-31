@@ -16,7 +16,11 @@ jobs:
 
     steps:
       - name: 进入目录
-        run: pwd
+        run: |
+            pwd
+            cd car-show
+            pwd
+        
         
       - name: 克隆仓库
         uses: actions/checkout@v4
