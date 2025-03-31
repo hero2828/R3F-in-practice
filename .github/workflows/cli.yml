@@ -28,11 +28,8 @@ jobs:
       - name: 安装pnpm2
         run: |
           pushd ./car-show
+          pwd
           npm install -g pnpm
-
-      - name: 切换到car-show目录
-        run: |
-          cd car-show || exit
 
       - name: 安装依赖
         run: pnpm install
