@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: 进入目录
-        run: cd car-physics
+        run: pwd
         
       - name: 克隆仓库
         uses: actions/checkout@v4
