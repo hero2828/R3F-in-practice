@@ -39,7 +39,7 @@ jobs:
       - name: 打包
         run: |
           pushd ./car-show
-          pnpm build --mode github-preview
+          pnpm build
 
       - name: 部署到preview分支
         uses: peaceiris/actions-gh-pages@v4
