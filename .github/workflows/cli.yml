@@ -27,18 +27,18 @@ jobs:
 
       - name: 安装pnpm2
         run: |
-          pushd ./car-physics
+          pushd ./r3f-in-practice
           pwd
           npm install -g pnpm
 
       - name: 安装依赖
         run: |
-          pushd ./car-physics
+          pushd ./r3f-in-practice
           pnpm install
 
       - name: 打包
         run: |
-          pushd ./car-physics
+          pushd ./r3f-in-practice
           pnpm build
 
       - name: 部署到preview分支
