@@ -27,6 +27,7 @@ jobs:
       - name: 安装pnpm
         working-directory: ./r3f-in-practice
         run: | 
+            pwd
             npm install
             npm run build
 
