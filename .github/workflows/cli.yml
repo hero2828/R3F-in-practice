@@ -26,10 +26,9 @@ jobs:
           node-version: 20
 
       - name: 安装pnpm
-        run: npm install pnpm -g
-
-      - name: 切换到car-show目录
-        run: cd car-show
+        run: |
+          cd car-show 
+          npm install pnpm -g
 
       - name: 安装依赖
         run: pnpm install
