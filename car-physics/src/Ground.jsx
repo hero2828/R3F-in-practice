@@ -13,7 +13,7 @@ export function Ground() {
     ), 
     useRef(null)
   );
-
+console.log(ref);
   const gridMap = useLoader(
     TextureLoader,
     process.env.PUBLIC_URL + "/textures/grid.png"
