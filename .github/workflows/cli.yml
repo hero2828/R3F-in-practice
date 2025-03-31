@@ -28,7 +28,9 @@ jobs:
       - name: 安装pnpm
         run: npm install -g pnpm
 
-
+      - name: 切换到car-show目录
+        run: |
+          cd car-show || exit
 
       - name: 安装依赖
         run: pnpm install
@@ -40,6 +42,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # 修改为当前目录下的dist目录，因为已经在car-show目录下
+          publish_dir: ./dist # 当前目录下的dist目录
           publish_branch: preview
           full_commit_message: ${{ github.event.head_commit.message }}
