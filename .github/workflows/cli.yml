@@ -23,7 +23,7 @@ jobs:
       - name: 指定Node.js版本
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 14
 
       - name: 安装pnpm2
         run: |
