@@ -43,7 +43,8 @@ jobs:
       - name: 部署到gh-pages分支
         uses: peaceiris/actions-gh-pages@v4
         with:
+          working-directory: ./r3f-in-practice
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./r3f-in-practice/dist # 指定r3f-in-practice下的dist目录
+          publish_dir: ./dist # 指定r3f-in-practice下的dist目录
           publish_branch: gh-pages
           full_commit_message: ${{ github.event.head_commit.message }}
