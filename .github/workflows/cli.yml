@@ -25,7 +25,7 @@ jobs:
           node-version: 20
 
       - name: 安装pnpm
-        working-directory: ./r3f-in-practice
+        working-directory: r3f-in-practice
         run: | 
             pwd
             npm install
