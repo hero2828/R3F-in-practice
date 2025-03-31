@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: 进入目录
         run: |
-            ls
+            ls -a
         
         
       - name: 克隆仓库
