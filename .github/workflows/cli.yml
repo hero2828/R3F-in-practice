@@ -25,7 +25,7 @@ jobs:
           node-version: 20
 
       - name: 安装pnpm
-        working-directory: .
+        working-directory: ./car-physics
         run: | 
             pwd
             npm install
