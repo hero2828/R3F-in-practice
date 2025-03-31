@@ -1,6 +1,5 @@
-name: 打包并输出到preview分支进行预览
+name: 打包并输出到gh-pages分支进行预览
 
-# 检测只有主分支的push操作会触发该工作流
 on:
   push:
     branches:
@@ -9,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: 打包
+    name: 打包并部署
     runs-on: ubuntu-latest
     permissions:
       contents: write # 确保有写权限
@@ -25,27 +24,26 @@ jobs:
         with:
           node-version: 20
 
-      - name: 安装pnpm2
-        run: |
-          pushd ./r3f-in-practice
-          pwd
-          npm install -g pnpm
+      - name: 安装pnpm
+        working-directory: ./r3f-in-practice
+        run: npm install -g pnpm
 
       - name: 安装依赖
-        run: |
-          pushd ./r3f-in-practice
-          pnpm install
+        working-directory: ./r3f-in-practice
+        run: pnpm install
 
-      - name: 打包
-        run: |
-          pushd ./r3f-in-practice
-          pnpm build
-          ls -a
+      - name: 打包项目
+        working-directory: ./r3f-in-practice
+        run: pnpm build
+
+      - name: 验证打包结果
+        working-directory: ./r3f-in-practice
+        run: ls -al dist
 
       - name: 部署到gh-pages分支
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # 当前目录下的dist目录
+          publish_dir: ./r3f-in-practice/dist # 指定r3f-in-practice下的dist目录
           publish_branch: gh-pages
           full_commit_message: ${{ github.event.head_commit.message }}
