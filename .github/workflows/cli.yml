@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: 安装pnpm
+      - name: 安装pnpm2
         run: |
           pushd ./car-show
           npm install -g pnpm
