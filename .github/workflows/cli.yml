@@ -29,21 +29,15 @@ jobs:
         run: npm install -g pnpm
 
       - name: 安装依赖
-        working-directory: ./r3f-in-practice
         run: pnpm install
 
       - name: 打包项目
-        working-directory: ./r3f-in-practice
         run: pnpm build
 
-      - name: 验证打包结果
-        working-directory: ./r3f-in-practice
-        run: ls -al dist
 
       - name: 部署到gh-pages分支
         uses: peaceiris/actions-gh-pages@v4
         with:
-          working-directory: ./r3f-in-practice
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist # 指定r3f-in-practice下的dist目录
           publish_branch: gh-pages
