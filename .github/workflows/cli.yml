@@ -18,8 +18,7 @@ jobs:
       - name: 进入目录
         run: |
             pwd
-            cd car-show
-            pwd
+            ls
         
         
       - name: 克隆仓库
