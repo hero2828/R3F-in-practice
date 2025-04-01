@@ -17,24 +17,24 @@ jobs:
       - name: 克隆仓库
         uses: actions/checkout@v4
         with:
-          ref: main # 指定主分支
+          fetch-depth: 0 # 获取所有历史记录和分支
 
       - name: 指定Node.js版本
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 安装pnpm
-        working-directory: ./car-physics
-        run: | 
-            pwd
-            npm install
-            npm run build
+      - name: 安装依赖并构建
+        run: |
+          npm install -g pnpm
+          pnpm install
+          pnpm run build
+        working-directory: ./car-physics # 如果你的项目在car-physics子目录
 
       - name: 部署到gh-pages分支
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # 指定r3f-in-practice下的dist目录
+          publish_dir: ./car-physics/dist # 确保路径正确
           publish_branch: gh-pages
           full_commit_message: ${{ github.event.head_commit.message }}
