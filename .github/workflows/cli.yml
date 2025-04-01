@@ -29,12 +29,12 @@ jobs:
           npm install -g pnpm
           pnpm install
           pnpm run build
-        working-directory: ./car-physics # 如果你的项目在car-physics子目录
+        working-directory: ./r3f-in-practice # 如果你的项目在car-physics子目录
 
       - name: 部署到gh-pages分支
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./car-physics/build # 确保路径正确
+          publish_dir: ./r3f-in-practice/build # 确保路径正确
           publish_branch: gh-pages
           full_commit_message: ${{ github.event.head_commit.message }}
